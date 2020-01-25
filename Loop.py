@@ -2,15 +2,18 @@ import Track
 from Track import tracks
 
 
+### Record a track ###############################################
 def record(track, indata):
     for frame in indata:
         track.data.append(frame)
 
+### Play back a track ############################################
 def play(track, outdata):
     trackData = track.getCurrentFrameData(len(outdata))
     outdata[:len(trackData)] += trackData
     track.toNextFrameset(len(outdata))
 
+### Overdubb a track #############################################
 def overdubb(track, outdata, indata):
     trackData = track.getCurrentFrameData(len(outdata))
     outdata[:len(trackData)] += trackData
@@ -23,6 +26,8 @@ def overdubb(track, outdata, indata):
     track.toNextFrameset(len(outdata))
 
 
+
+### MAIN AUDIO-LOOP ##############################################
 def audioLoop(indata, outdata, frames, time, status):
     outdata[:] = 0
 

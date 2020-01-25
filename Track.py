@@ -1,11 +1,15 @@
 import os
 import soundfile
+from Metronome import Metronome
 
+
+### Track-States ###########################################
 NONE = -1
 STOPPED = 0
 RECORDING = 1
 OVERDUBBING = 2
 PLAYING = 3
+
 
 class Track:
 
@@ -22,13 +26,16 @@ class Track:
         self.data = []
         self.pos = 0
 
+
     def getCurrentFrameData(self, frames):
         return self.data[self.pos:self.pos+frames]
+
 
     def toNextFrameset(self, frames):
         self.pos += frames
         if self.pos >= len(self.data):
             self.pos -= len(self.data)
+
 
     def nextState(self):
         if self.state == NONE:
@@ -46,6 +53,7 @@ class Track:
         elif self.state == STOPPED:
             self.state = PLAYING
 
+
     def saveToFile(self, filename, fs, ch):
         if len(self.data) > 0:
             if os.path.isfile(filename):
@@ -54,6 +62,7 @@ class Track:
             file.write(self.data)
 
 
-tracks = [Track('First'),
+tracks = [Metronome(4, 120, 44100),
+        Track('First'),
         Track('Second'),
         Track('Third')]
