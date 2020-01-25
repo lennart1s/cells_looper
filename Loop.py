@@ -1,5 +1,6 @@
 import Track
 from Track import tracks
+from Track import metronome
 
 
 ### Record a track ###############################################
@@ -30,6 +31,11 @@ def overdubb(track, outdata, indata):
 ### MAIN AUDIO-LOOP ##############################################
 def audioLoop(indata, outdata, frames, time, status):
     outdata[:] = 0
+
+    if metronome.state == Track.PLAYING:
+        play(metronome, outdata)
+    elif metronome.state == Track.MUTED:
+        metronome.toNextFrameset(len(outdata))
 
     for track in tracks:
 

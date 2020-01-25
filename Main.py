@@ -21,8 +21,8 @@ audioStream = sounddevice.Stream(samplerate=44100, callback=audioLoop)
 controlls.addControll('q', audioStream.stop, None)
 controlls.addControll('s', saveTracks, None)
 
-controlls.addControll('1', Track.tracks[1].nextState, None)
-controlls.addControll('m', Track.tracks[0].nextState, None)
+controlls.addControll('1', Track.tracks[0].nextState, None)
+controlls.addControll('m', Track.metronome.nextState, None)
 
 
 ### MAIN - LOOP ###############################################################
