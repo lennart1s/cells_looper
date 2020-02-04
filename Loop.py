@@ -57,12 +57,9 @@ def audioLoop(indata, outdata, frames, time, status):
             data = indata.copy()[:track.toRecord]
             record(track, data)
             track.toRecord -= len(data)
-            if track.toRecord == 0:
-                track.pos = Track.metronome.pos
 
         elif track.state == Track.OVERDUBBING:
             overdubb(track, outdata, indata.copy())
 
         elif track.state == Track.PLAYING:
-            track.pos = Track.metronome.pos
             play(track, outdata)

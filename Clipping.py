@@ -5,7 +5,7 @@ threshhold = 0.35
 
 def startClipping(track, referenceTracks):
     for referenceTrack in referenceTracks:
-        if referenceTrack.state != Track.NONE and referenceTrack != track:
+        if referenceTrack.state == Track.PLAYING and referenceTrack != track:
             # EARLY
             if referenceTrack.pos >= len(referenceTrack.data) - threshhold*44100:
                 track.toSkip += len(referenceTrack.data) - referenceTrack.pos
@@ -20,7 +20,7 @@ def startClipping(track, referenceTracks):
 
 def endClipping(track, referenceTracks):
     for referenceTrack in referenceTracks:
-        if referenceTrack.state != Track.NONE and referenceTrack != track:
+        if referenceTrack.state == Track.PLAYING and referenceTrack != track:
             # EARLY
             if referenceTrack.pos >= len(referenceTrack.data) - threshhold*44100:
                 track.toRecord += len(referenceTrack.data) - referenceTrack.pos
@@ -30,5 +30,5 @@ def endClipping(track, referenceTracks):
                 track.toRecord -= referenceTrack.pos
                 if track.toRecord < 0:
                     track.data = track.data[:len(track.data)+track.toRecord]
-                track.pos = referenceTrack.pos
+                track.pos = track.toRecord+referenceTrack.pos
                 break

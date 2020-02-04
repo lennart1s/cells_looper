@@ -54,8 +54,8 @@ class Track:
             Clipping.startClipping(self, [metronome]+tracks)
         
         elif self.state == RECORDING:
-            self.state = OVERDUBBING
-            #self.state = PLAYING
+            #self.state = OVERDUBBING
+            self.state = PLAYING
             #
             Clipping.endClipping(self, [metronome]+tracks)
 
@@ -111,7 +111,6 @@ class Metronome(Track):
         self.generatePattern()
 
     def nextState(self):
-        print("awd")
         if self.state == NONE:
             self.state = PLAYING
         
