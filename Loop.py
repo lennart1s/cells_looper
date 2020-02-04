@@ -1,4 +1,5 @@
 import Track
+import LatencyCompensation
 
 lastSecond = []
 
@@ -23,8 +24,11 @@ def overdubb(track, outdata, indata):
 
     for x in range(len(indata)):
         y = x
+        x -= int(LatencyCompensation.latency * 44100)
         if track.pos+x >= len(track.data):
             x -= len(track.data)
+        elif track.pos+x < 0:
+            x += len(track.data)
         track.data[track.pos+x] += indata[y]
 
     track.toNextFrameset(len(outdata))

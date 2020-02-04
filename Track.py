@@ -54,8 +54,8 @@ class Track:
             Clipping.startClipping(self, [metronome]+tracks)
         
         elif self.state == RECORDING:
-            #self.state = OVERDUBBING TODO oderdub latency
-            self.state = PLAYING
+            self.state = OVERDUBBING
+            #self.state = PLAYING
             #
             Clipping.endClipping(self, [metronome]+tracks)
 
