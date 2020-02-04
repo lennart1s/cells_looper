@@ -8,8 +8,8 @@ from Loop import audioLoop
 
 
 def saveTracks():
-    Track.tracks[1].saveToFile("yeah.wav", 44100, 2)
-    Track.tracks[0].saveToFile("met.wav", 44100, 2)
+    Track.tracks[0].saveToFile("yeah.wav", 44100, 2)
+    #Track.tracks[0].saveToFile("met.wav", 44100, 2)
 
 
 ### Initialize Audio-Stream ###################################################
@@ -22,7 +22,10 @@ controlls.addControll('q', audioStream.stop, None)
 controlls.addControll('s', saveTracks, None)
 
 controlls.addControll('1', Track.tracks[0].nextState, None)
+controlls.addControll('2', Track.tracks[1].nextState, None)
 controlls.addControll('m', Track.metronome.nextState, None)
+
+
 
 
 ### MAIN - LOOP ###############################################################
@@ -32,3 +35,5 @@ while audioStream.active:
     controlls.checkForInput()
     
     time.sleep(0.005)
+
+    print(Track.metronome.pos,"/",len(Track.metronome.data), "   ",Track.tracks[0].pos,"/",len(Track.tracks[0].data), "   ",Track.tracks[1].pos,"/",len(Track.tracks[1].data))
