@@ -14,7 +14,12 @@ def record(track, indata):
 ### Play back a track ############################################
 def play(track, outdata):
     trackData = track.getCurrentFrameData(len(outdata))
+    
+    print(outdata.shape)
+    print(trackData.shape)
     outdata[:len(trackData)] += trackData
+    
+    
     track.toNextFrameset(len(outdata))
 
 ### Overdubb a track #############################################
