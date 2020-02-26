@@ -13,8 +13,7 @@ from Loop import audioLoop
 
 
 ### Initialize Audio-Stream ###################################################
-audioStream = sounddevice.Stream(samplerate=44100, callback=audioLoop)
-audioStream.default.channels = 2
+audioStream = sounddevice.Stream(samplerate=44100, callback=audioLoop, channels=2)
 
 
 
