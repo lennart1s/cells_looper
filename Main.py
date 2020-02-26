@@ -22,11 +22,11 @@ audioStream = sounddevice.Stream(samplerate=44100, callback=audioLoop)
 #controlls.addControll('s', saveTracks, None)
 
 #controlls.addControll('1', Track.tracks[0].nextState, None)
-controlls.addControll('27', Track.tracks[0].nextState, None)
+controlls.addControll(27, Track.tracks[0].nextState, None)
 #controlls.addControll('2', Track.tracks[1].nextState, None)
-controlls.addControll('22', Track.tracks[1].nextState, None)
+controlls.addControll(22, Track.tracks[1].nextState, None)
 #controlls.addControll('m', Track.metronome.nextState, None)
-controlls.addControll('23', Track.metronome.nextState, None)
+controlls.addControll(23, Track.metronome.nextState, None)
 
 
 

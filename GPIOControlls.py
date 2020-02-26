@@ -1,10 +1,10 @@
 import RPi.GPIO as GPIO
 
 controls = {}
-GPIO.setMode(GPIO.BCM)
+GPIO.setmode(GPIO.BCM)
 
 class Control:
-    pin = ''
+    pin = 0
     isPressed = False
 
     function = None
