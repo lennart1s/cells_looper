@@ -43,7 +43,6 @@ def audioLoop(indata, outdata, frames, time, status):
         lastSecond = lastSecond[len(lastSecond)-44100:]
 
     outdata[:] = 0
-    print(outdata.shape)
 
     if Track.metronome.state == Track.PLAYING:
         play(Track.metronome, outdata)

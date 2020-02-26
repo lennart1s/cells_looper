@@ -39,4 +39,4 @@ while audioStream.active:
     
     time.sleep(0.005)
 
-    print(Track.metronome.pos,"/",len(Track.metronome.data), "   ",Track.tracks[0].pos,"/",len(Track.tracks[0].data), "   ",Track.tracks[1].pos,"/",len(Track.tracks[1].data))
+    #print(Track.metronome.pos,"/",len(Track.metronome.data), "   ",Track.tracks[0].pos,"/",len(Track.tracks[0].data), "   ",Track.tracks[1].pos,"/",len(Track.tracks[1].data))
