@@ -15,8 +15,10 @@ def record(track, indata):
 def play(track, outdata):
     trackData = track.getCurrentFrameData(len(outdata))
     
+    print("########")
     print(outdata.shape)
     print(trackData.shape)
+    print("#########")
     outdata[:len(trackData)] += trackData
     
     
