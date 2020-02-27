@@ -7,8 +7,7 @@ func main() {
 	defer portaudio.Terminate()
 	in := make([]int32, 64)
 	out := make([]int32, 64)
-	stream, err := portaudio.OpenDefaultStream(1, 1, 44100, len(data), in, out)
-	stream, err := portautio.OpenStream()
+	stream, err := portaudio.OpenDefaultStream(1, 1, 44100, len(in), in, out)
 	if err != nil {
 		panic(err)
 	}
