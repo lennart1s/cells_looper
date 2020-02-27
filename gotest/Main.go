@@ -10,8 +10,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	defer stream.close()
-	stream.start()
+	defer stream.Close()
+	stream.Start()
 	for {
 		stream.Read()
 		stream.Write()
