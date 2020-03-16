@@ -3,7 +3,11 @@
 
 int main() {
     printf("Hello World\n");
-    Pa_Initialize();
+    PaError err = paNoError;
+    err = Pa_Initialize();
+    if (err != paNoError) {
+        prtinf("err")
+    }
     return 0;
 }
 
