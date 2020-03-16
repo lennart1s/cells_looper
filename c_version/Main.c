@@ -6,7 +6,7 @@ int main() {
     PaError err = paNoError;
     err = Pa_Initialize();
     if (err != paNoError) {
-        prtinf("err")
+        prtinf("err");
     }
     return 0;
 }
