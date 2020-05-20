@@ -1,20 +1,6 @@
-#include "portaudio.h"
-#include <stdio.h>
+#define PY_SSIZE_T_CLEAN
+#include "Include/Python.h"
 
-int main() {
-    printf("Hello World\n");
-    PaError err = paNoError;
-    err = Pa_Initialize();
-    if (err != paNoError) {
-        printf("err");
-    }
-    return 0;
+int main(int argc, char *argv[]) {
+
 }
-
-static int callback(const void *inputBuffer, void *outputBuffer, unsigned long framesPerBuffer, 
-                        const PaStreamCallbackTimeInfo* timeInfo, PaStreamCallbackFlags statusFlags,
-                        void *userData) {
-
-    printf(framesPerBuffer);
-}
-
